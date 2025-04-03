@@ -10,6 +10,7 @@ import { toast } from "sonner-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MatchInfo, MatchInfoResponse } from "../types/cricket";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Constants from "expo-constants";
 
 export default function MatchInfoScreen({ route }: { route: any }) {
 	const { matchId } = route.params;
@@ -23,7 +24,7 @@ export default function MatchInfoScreen({ route }: { route: any }) {
 	const fetchMatchInfo = async () => {
 		try {
 			const response = await fetch(
-				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/match_info?apikey=${process.env.EXPO_PUBLIC_API_KEY}&id=${matchId}`
+				`https://${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_DOMAIN}/match_info?apikey=${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_KEY}&id=${matchId}`
 			);
 			const data: MatchInfoResponse = await response.json();
 

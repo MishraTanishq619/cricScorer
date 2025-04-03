@@ -12,6 +12,7 @@ import { toast } from "sonner-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Match, SeriesInfoResponse } from "../types/cricket";
 import MatchCard from "../components/MatchCard";
+import Constants from "expo-constants";
 
 export default function SeriesInfoScreen({
 	route,
@@ -36,7 +37,7 @@ export default function SeriesInfoScreen({
 	const fetchSeriesInfo = async () => {
 		try {
 			const response = await fetch(
-				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/series_info?apikey=${process.env.EXPO_PUBLIC_API_KEY}&id=${seriesId}`
+				`https://${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_DOMAIN}/series_info?apikey=${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_KEY}&id=${seriesId}`
 			);
 			const data: SeriesInfoResponse = await response.json();
 

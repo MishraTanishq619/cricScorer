@@ -1,14 +1,14 @@
 {
 	"expo": {
-		"name": "a0-project",
+		"name": "cric-scorer-app",
 		"slug": "snack-060789c2-0684-4b5d-88f5-be8279ef86e4",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/icon.png",
+		"icon": "./assets/cricscorer-logo.jpeg",
 		"userInterfaceStyle": "light",
 		"newArchEnabled": true,
 		"splash": {
-			"image": "./assets/splash-icon.png",
+			"image": "./assets/cricscorer-splash.jpeg",
 			"resizeMode": "contain",
 			"backgroundColor": "#ffffff"
 		},
@@ -17,13 +17,21 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
+				"foregroundImage": "./assets/cricscorer-splash.jpeg",
 				"backgroundColor": "#ffffff"
 			}
 		},
 		"web": {
-			"favicon": "./assets/favicon.png"
+			"favicon": "./assets/cricscorer-logo.jpeg"
 		},
-		"description": "Quickly generate React Native components with AI"
+		"description": "React Native Cricket Scorer App with AI",
+		"extra": {
+			"eas": {
+				"projectId": "1d39225e-a14b-476e-8552-0d5a5a41c17f"
+			},
+			"EXPO_PUBLIC_API_KEY": "1e1cef80-640b-4464-aa78-79301c5f82a0",
+			"EXPO_PUBLIC_API_DOMAIN": "api.cricapi.com/v1"
+		},
+		"owner": "tannu619"
 	}
 }
