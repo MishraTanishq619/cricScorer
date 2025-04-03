@@ -13,10 +13,8 @@ import { toast } from "sonner-native";
 import { Series, SeriesResponse } from "../types/cricket";
 import SeriesCard from "../components/SeriesCard";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Constants from "expo-constants";
 
 export default function HomeScreen({ navigation }: { navigation: any }) {
-	console.log("Constants.expoConfig?.extra : ", Constants.expoConfig?.extra);
 	const [series, setSeries] = useState<Series[]>([]);
 	const [filteredSeries, setFilteredSeries] = useState<Series[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -26,7 +24,7 @@ export default function HomeScreen({ navigation }: { navigation: any }) {
 	const fetchSeries = async () => {
 		try {
 			const response = await fetch(
-				`https://${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_DOMAIN}/series?apikey=${Constants.expoConfig?.extra?.EXPO_PUBLIC_API_KEY}&offset=0`
+				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/series?apikey=${process.env.EXPO_PUBLIC_API_KEY}&offset=0`
 			);
 			const data: SeriesResponse = await response.json();
 
