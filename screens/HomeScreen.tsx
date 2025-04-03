@@ -14,7 +14,7 @@ import { Series, SeriesResponse } from "../types/cricket";
 import SeriesCard from "../components/SeriesCard";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation }: { navigation: any }) {
 	const [series, setSeries] = useState<Series[]>([]);
 	const [filteredSeries, setFilteredSeries] = useState<Series[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -24,7 +24,7 @@ export default function HomeScreen({ navigation }) {
 	const fetchSeries = async () => {
 		try {
 			const response = await fetch(
-				"https://api.cricapi.com/v1/series?apikey=1e1cef80-640b-4464-aa78-79301c5f82a0&offset=0"
+				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/series?apikey=${process.env.EXPO_PUBLIC_API_KEY}&offset=0`
 			);
 			const data: SeriesResponse = await response.json();
 

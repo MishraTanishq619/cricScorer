@@ -13,7 +13,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Match, SeriesInfoResponse } from "../types/cricket";
 import MatchCard from "../components/MatchCard";
 
-export default function SeriesInfoScreen({ route, navigation }) {
+export default function SeriesInfoScreen({
+	route,
+	navigation,
+}: {
+	route: any;
+	navigation: any;
+}) {
 	const { seriesId } = route.params;
 	const [matches, setMatches] = useState<Match[]>([]);
 	const [filteredMatches, setFilteredMatches] = useState<Match[]>([]);
@@ -30,7 +36,7 @@ export default function SeriesInfoScreen({ route, navigation }) {
 	const fetchSeriesInfo = async () => {
 		try {
 			const response = await fetch(
-				`https://api.cricapi.com/v1/series_info?apikey=1e1cef80-640b-4464-aa78-79301c5f82a0&id=${seriesId}`
+				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/series_info?apikey=${process.env.EXPO_PUBLIC_API_KEY}&id=${seriesId}`
 			);
 			const data: SeriesInfoResponse = await response.json();
 
@@ -136,7 +142,6 @@ export default function SeriesInfoScreen({ route, navigation }) {
 					onChangeText={(text) => filterMatches(text, filterType)}
 				/>
 				<View style={styles.filterButtons}>
-					{" "}
 					<FilterButton title="All" type="all" />
 					<FilterButton title="Upcoming" type="upcoming" />
 					<FilterButton title="Completed" type="completed" />

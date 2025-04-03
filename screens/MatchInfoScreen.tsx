@@ -11,7 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { MatchInfo, MatchInfoResponse } from "../types/cricket";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function MatchInfoScreen({ route }) {
+export default function MatchInfoScreen({ route }: { route: any }) {
 	const { matchId } = route.params;
 	const [matchInfo, setMatchInfo] = useState<MatchInfo | null>(null);
 	const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export default function MatchInfoScreen({ route }) {
 	const fetchMatchInfo = async () => {
 		try {
 			const response = await fetch(
-				`https://api.cricapi.com/v1/match_info?apikey=1e1cef80-640b-4464-aa78-79301c5f82a0&id=${matchId}`
+				`https://${process.env.EXPO_PUBLIC_API_DOMAIN}/match_info?apikey=${process.env.EXPO_PUBLIC_API_KEY}&id=${matchId}`
 			);
 			const data: MatchInfoResponse = await response.json();
 
@@ -80,7 +80,7 @@ export default function MatchInfoScreen({ route }) {
 				{matchInfo.tossWinner && (
 					<View style={styles.tossInfo}>
 						<MaterialCommunityIcons
-							name="coin"
+							name="stadium"
 							size={20}
 							color="#666"
 						/>
