@@ -107,26 +107,26 @@ function RootStack() {
 
 	useEffect(() => {
 		const unsubscribe = subscribeToAuthChanges((currentUser) => {
-			setUser(currentUser);
+			setUser(currentUser ?? false);
 		});
 
 		return unsubscribe; // Cleanup listener on unmount
 	}, []);
 
-	// if (user === null) {
-	// 	// Show a loading indicator while verifying token
-	// 	return (
-	// 		<View
-	// 			style={{
-	// 				flex: 1,
-	// 				justifyContent: "center",
-	// 				alignItems: "center",
-	// 			}}
-	// 		>
-	// 			<ActivityIndicator size="large" color="#2196F3" />
-	// 		</View>
-	// 	);
-	// }
+	if (user === null) {
+		// Show a loading indicator while verifying token
+		return (
+			<View
+				style={{
+					flex: 1,
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
+				<ActivityIndicator size="large" color="#2196F3" />
+			</View>
+		);
+	}
 
 	return user ? <MainStack /> : <AuthTabs />;
 }
