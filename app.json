@@ -1,12 +1,13 @@
 {
-  "expo": {
-    "extra": {
-      "eas": {
-        "projectId": "49cf1c8d-f4cb-40a7-bdcd-f303853522d6"
-      }
-    },
-    "android": {
-      "package": "com.tannu619.cricscorerapp"
-    }
-  }
+	"expo": {
+		"newArchEnabled": true,
+		"extra": {
+			"eas": {
+				"projectId": "49cf1c8d-f4cb-40a7-bdcd-f303853522d6"
+			}
+		},
+		"android": {
+			"package": "com.tannu619.cricscorerapp"
+		}
+	}
 }

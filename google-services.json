@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "654160710009",
+    "project_id": "cricscorer-619",
+    "storage_bucket": "cricscorer-619.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654160710009:android:d3cb79237e0bd39d8107a8",
+        "android_client_info": {
+          "package_name": "com.cricscorer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuEC19mWFkFBNRDswDXRQ3AvGhI87UUbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
